@@ -35,15 +35,28 @@ span1.textContent = temp;
   //    <span class="temp">{ temp }</span>
   //  </div>
   //
-  console.log(wrapper)
+  
   return wrapper
 }
 
-const headerAppender = (selector) => {}
 
+
+
+
+
+
+const headerAppender = (selector) => {
+  const parentElement = document.querySelector(selector)
+  const headerContent = Header('Lamba Times', 'January 6th 2021','26')
+   parentElement.appendChild(headerContent)
   
 
+
+  console.log(parentElement)
   
+}
+
+
   // TASK 2
   // ---------------------
   // Implement this function taking a css selector as its only argument.
