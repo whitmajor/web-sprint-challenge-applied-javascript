@@ -1,10 +1,6 @@
 import axios from "axios"
 
-const topicParent = document.querySelector(".tabs-container")
-
-
-
-
+//const topicParent = document.querySelector(".tabs-container")
 
 
 const Tabs = (topics) => {
@@ -43,24 +39,24 @@ tab3.classList.add("tab")
 tab4.classList.add('tab')
 tab5.classList.add('tab')
 
-const tabLinks = document.querySelectorAll(".topic .tab div")
-const tabLinks2 = Object.values(topics)
-tabLinks.forEach((text,idx)=>
-text.textContent = tabLinks2[idx])
+//const tabLinks = document.querySelectorAll(".topic .tab div")
+//const tabLinks2 = Object.values(topics)
+//tabLinks.forEach((text,idx)=>
+//text.textContent = tabLinks2[idx])
 
-/*
-tab1.textContent =  topics
-tab2.textContent = topics
-tab3.textContent = topics
-tab4.textContent = topics
-tab5.textContent = topics
-*/
+
+tab1.textContent = "javascript"
+tab2.textContent = "bootstrap"
+tab3.textContent = "technology"
+tab4.textContent = "jquery"
+tab5.textContent = "node.js"
+
 
 
 return wrapper
 }
-//const tabComponent = Tabs("javascript")
-//console.log(tabComponent)
+
+
 
 
 const tabsAppender = (selector) => {
@@ -69,10 +65,16 @@ const tabsAppender = (selector) => {
   
   axios.get('http://localhost:5001/api/topics')
   .then((res)=>{ 
-    parentElement.appendChild(Tabs(res.data))
-  console.log(res.data)
-    })
-  }
+
+          const tabsData = res.data.topics
+    
+         Tabs(tabsData)
+   parentElement.appendChild(Tabs(tabsData))
+    
+ // console.log(res.data.topics)
+  
+  })
+}
   
   
   // TASK 4

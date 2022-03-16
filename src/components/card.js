@@ -1,8 +1,19 @@
 import axios from "axios"
+const Parent =
+axios.get("http://localhost:5001/api/articles")
+.then(res =>{
+  res.data.articles.forEach(data =>{
+    const articleObj ={
+      authorName: data.authorName,
+      imgSrc : data.authorPhoto,
+      headline : data.headline
+    }
+    const article =Card(articleObj);
+    parentElement.appendChild(article)
+  })
+}).catch(err => console.error)
 
-
-
-
+console.log(Parent)
 
 const parentElement = document.querySelector(".cards-container")
 
@@ -28,9 +39,10 @@ const Card = (article) => {
   cardHeadLine.classList.add("headline")
   author.classList.add('author')
   imgWrapper.classList.add("img-container")
+
+  Name.textContent = "By:" + article.Name
   img.src = article.authorPhoto;
   cardHeadLine.textContent = article.headline;
-  Name.textContent = "By:" + article.authorName
   
   return cardWrapper
 }
@@ -63,10 +75,13 @@ const Card = (article) => {
   // </div>
   //
 
-const cardMaker=({authorPhoto,headline,authorName}) =>{  
-return cardWrapper
+//const cardMaker=({authorPhoto,headline,authorName}) =>{  
+ 
 
-}
+  
+//return cardWrapper
+
+//}
 
 
 const cardAppender = (selector) => {
@@ -74,9 +89,34 @@ const cardAppender = (selector) => {
 console.log(parentElement)
   axios.get("http://localhost:5001/api/articles")
   .then((res) =>{
-    const article = res.data.articles
-           Card(article)
-           parentElement.appendChild(Card(article))
+    const article = res.data.articles.javascript
+    const article1 = res.data.articles.bootstrap
+    const article2 = res.data.articles.technology
+    const article3 = res.data.articles.jquery
+    const article4 = res.data.articles.node
+    article.forEach(element =>{
+      const cardElem = Card(element)
+      parentElement.appendChild(cardElem)
+    })
+    article1.forEach(element =>{
+      const cardElem1 = Card(element)
+      parentElement.appendChild(cardElem1)
+    })
+    article2.forEach(element=>{
+      const cardElem2 = Card(element)
+      parentElement.appendChild(cardElem2)
+    })
+    article3.forEach(element =>{
+      const cardElem3 = Card(element)
+      parentElement.appendChild(cardElem3)
+    })
+    article4.forEach(element =>{
+      const cardElem4 =Card(element)
+      parentElement.appendChild(cardElem4)
+    })
+
+          // Card(article)
+           //parentElement.appendChild(Card(article))
     console.log(res.data.articles)
   })
 }
