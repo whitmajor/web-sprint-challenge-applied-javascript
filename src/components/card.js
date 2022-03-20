@@ -40,7 +40,7 @@ const Card = (article) => {
   author.classList.add('author')
   imgWrapper.classList.add("img-container")
 
-  Name.textContent = "By:" + article.Name
+  Name.textContent =  article.authorName
   img.src = article.authorPhoto;
   cardHeadLine.textContent = article.headline;
   

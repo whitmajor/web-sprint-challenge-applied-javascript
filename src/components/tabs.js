@@ -39,7 +39,6 @@ tab3.classList.add("tab")
 tab4.classList.add('tab')
 tab5.classList.add('tab')
 
-//const tabLinks = document.querySelectorAll(".topic .tab div")
 //const tabLinks2 = Object.values(topics)
 //tabLinks.forEach((text,idx)=>
 //text.textContent = tabLinks2[idx])
@@ -51,10 +50,11 @@ tab3.textContent = "technology"
 tab4.textContent = "jquery"
 tab5.textContent = "node.js"
 
-
-
 return wrapper
+
 }
+
+
 
 
 
@@ -73,7 +73,8 @@ const tabsAppender = (selector) => {
     
  // console.log(res.data.topics)
   
-  })
+  
+})
 }
   
   
