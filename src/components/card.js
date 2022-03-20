@@ -33,14 +33,14 @@ const Card = (article) => {
   cardWrapper.appendChild(author)
   author.appendChild(imgWrapper)
   imgWrapper.appendChild(img)
-  img.appendChild(Name)
+  imgWrapper.appendChild(Name)
   
   cardWrapper.classList.add("card")
   cardHeadLine.classList.add("headline")
   author.classList.add('author')
   imgWrapper.classList.add("img-container")
 
-  Name.textContent =  article.authorName
+  Name.textContent = `By: ${article.authorName}`
   img.src = article.authorPhoto;
   cardHeadLine.textContent = article.headline;
   

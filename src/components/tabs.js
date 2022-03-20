@@ -2,6 +2,12 @@ import axios from "axios"
 
 //const topicParent = document.querySelector(".tabs-container")
 
+let topicsArray =[
+  'javascript',
+  'bootstrap',
+
+];
+
 
 const Tabs = (topics) => {
   // TASK 3
@@ -20,36 +26,50 @@ const Tabs = (topics) => {
   //
 const wrapper = document.createElement('div')
 const tab1 = document.createElement('div')
-
+const topicsArray = document.createElement('div')
+/*
 const tab2 = document.createElement('div')
 const tab3 = document.createElement('div')
 const tab4 = document.createElement('div')
 const tab5 = document.createElement('div')
-
+*/
 wrapper.appendChild(tab1)
+wrapper.appendChild(topicsArray)
+/*
 wrapper.appendChild(tab2)
 wrapper.appendChild(tab3)
 wrapper.appendChild(tab4)
 wrapper.appendChild(tab5)
+*/
 
 wrapper.classList.add('topics')
 tab1.classList.add("tab")
-tab2.classList.add("tab")
-tab3.classList.add("tab")
-tab4.classList.add('tab')
-tab5.classList.add('tab')
+topicsArray.classList.add('tab')
+//tab2.classList.add("tab")
+//tab3.classList.add("tab")
+//tab4.classList.add('tab')
+//tab5.classList.add('tab')
 
 //const tabLinks2 = Object.values(topics)
 //tabLinks.forEach((text,idx)=>
 //text.textContent = tabLinks2[idx])
 
 
-tab1.textContent = "javascript"
-tab2.textContent = "bootstrap"
-tab3.textContent = "technology"
-tab4.textContent = "jquery"
-tab5.textContent = "node.js"
+topics.forEach(topicText =>{
+  const tabs = document.createElement('div')
+  tabs.textContent = topicText;
+  topicsArray.appendChild(tabs)
 
+})
+
+//tab2.textContent = topics
+//tab3.textContent = topics
+//tab4.textContent = topics
+//tab5.textContent = topics
+
+topicsArray.addEventListener("click", ()=>{
+  topicsArray.classList.toogle("tab");
+})
 return wrapper
 
 }
@@ -65,14 +85,10 @@ const tabsAppender = (selector) => {
   
   axios.get('http://localhost:5001/api/topics')
   .then((res)=>{ 
-
-          const tabsData = res.data.topics
-    
+          const tabsData = res.data.topics 
          Tabs(tabsData)
    parentElement.appendChild(Tabs(tabsData))
     
- // console.log(res.data.topics)
-  
   
 })
 }
