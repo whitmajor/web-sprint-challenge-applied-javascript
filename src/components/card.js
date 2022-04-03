@@ -1,21 +1,8 @@
 import axios from "axios"
-const Parent =
-axios.get("http://localhost:5001/api/articles")
-.then(res =>{
-  res.data.articles.forEach(data =>{
-    const articleObj ={
-      authorName: data.authorName,
-      imgSrc : data.authorPhoto,
-      headline : data.headline
-    }
-    const article =Card(articleObj);
-    parentElement.appendChild(article)
-  })
-}).catch(err => console.error)
 
-console.log(Parent)
 
 const parentElement = document.querySelector(".cards-container")
+
 
 
 //displays one card
@@ -43,6 +30,8 @@ const Card = (article) => {
   Name.textContent = `By: ${article.authorName}`
   img.src = article.authorPhoto;
   cardHeadLine.textContent = article.headline;
+
+
   
   return cardWrapper
 }
@@ -94,6 +83,9 @@ console.log(parentElement)
     const article2 = res.data.articles.technology
     const article3 = res.data.articles.jquery
     const article4 = res.data.articles.node
+    const article5 = res.data.articles.authorName
+    console.log(article5)
+    
     article.forEach(element =>{
       const cardElem = Card(element)
       parentElement.appendChild(cardElem)
@@ -114,6 +106,8 @@ console.log(parentElement)
       const cardElem4 =Card(element)
       parentElement.appendChild(cardElem4)
     })
+   
+  
 
           // Card(article)
            //parentElement.appendChild(Card(article))
