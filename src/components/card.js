@@ -5,47 +5,6 @@ const parentElement = document.querySelector(".cards-container")
 
 
 
-//displays one card
-const Card = (article) => {
-  
-  const cardWrapper = document.createElement('div')
-  const cardHeadLine = document.createElement('div')
-  const author = document.createElement('div')
-  const imgWrapper = document.createElement('div')
-  const img = document.createElement('img')
-  const Name = document.createElement('span')
-  
-  
-  cardWrapper.appendChild(cardHeadLine)
-  cardWrapper.appendChild(author)
-  author.appendChild(imgWrapper)
-  imgWrapper.appendChild(img)
-  imgWrapper.appendChild(Name)
-  
-  cardWrapper.classList.add("card")
-  cardHeadLine.classList.add("headline")
-  author.classList.add('author')
-  imgWrapper.classList.add("img-container")
-
-  Name.textContent = `By: ${article.authorName}`
-  img.src = article.authorPhoto;
-  cardHeadLine.textContent = article.headline;
-
-
-  
-  return cardWrapper
-}
-
-
- // section.appendChild(cardMaker(articleData))   
- 
- // console.log( section)
-
-
-
-
-
-// TASK 5
 // ---------------------
 // Implement this function, which should return the markup you see below.
 // It takes as its only argument an "article" object with `headline`, `authorPhoto` and `authorName` properties.
@@ -66,6 +25,48 @@ const Card = (article) => {
 
 //const cardMaker=({authorPhoto,headline,authorName}) =>{  
  
+//displays one card
+const Card = (article) => {
+  
+  const cardWrapper = document.createElement('div')
+  const cardHeadLine = document.createElement('div')
+  const author = document.createElement('div')
+  const imgWrapper = document.createElement('div')
+  const img = document.createElement('img')
+  const Name = document.createElement('span')
+  
+  
+  cardWrapper.appendChild(cardHeadLine)
+  cardWrapper.appendChild(author)
+  author.appendChild(imgWrapper)
+  imgWrapper.appendChild(img)
+  author.appendChild(Name)
+  
+  cardWrapper.classList.add("card")
+  cardHeadLine.classList.add("headline")
+  author.classList.add('author')
+  imgWrapper.classList.add("img-container")
+  
+  
+  cardHeadLine.textContent = article.headline;
+  img.src = article.authorPhoto;
+  Name.textContent = `By: ${article.authorName}`
+
+
+  
+  return cardWrapper
+}
+
+
+ // section.appendChild(cardMaker(articleData))   
+ 
+ // console.log( section)
+
+
+
+
+
+// TASK 5
 
   
 //return cardWrapper
@@ -83,8 +84,7 @@ console.log(parentElement)
     const article2 = res.data.articles.technology
     const article3 = res.data.articles.jquery
     const article4 = res.data.articles.node
-    const article5 = res.data.articles.authorName
-    console.log(article5)
+  
     
     article.forEach(element =>{
       const cardElem = Card(element)
@@ -106,6 +106,7 @@ console.log(parentElement)
       const cardElem4 =Card(element)
       parentElement.appendChild(cardElem4)
     })
+   
    
   
 
